@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.ts",
-    "build": "npm uninstall typescript && npm install typescript && tsc && esbuild dist/index.js --minify --outfile=dist/index.min.js",
+    "build": "npm uninstall typescript && npm install -g typescript && tsc && esbuild dist/index.js --minify --outfile=dist/index.min.js",
     "start-dev": "ts-node src/index.ts",
     "start": "node dist/index.min.js"
   },
@@ -18,7 +18,6 @@
     "fs": "^0.0.1-security",
     "lua-fmt": "^2.6.0",
     "luaparse": "^0.3.1",
-    "tsc": "^2.0.4",
-    "typescript": "^4.9.4"
+    "tsc": "^2.0.4"
   }
 }
