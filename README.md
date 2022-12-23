@@ -1,3 +1,5 @@
+**IN DEVELOPMENT**
+
 # De4Lua Public
 
 De4Lua is a open source LUA deobfuscator. It is written in NodeJS and is designed to be used as a CLI. It is currently in development and is not yet ready for production use.
@@ -5,7 +7,7 @@ I am hoping to one day intergrate this with [LuaDebugger](https://github.com/Shu
 
 ## Todo:
 
-If you have any feature requests, send them to my discord or make a new issue. 
+If you have any feature requests, send them to my discord or make a new issue.
 
 1. Inline functions: Make one line functions inline, and remove the function definition
 2. Loadstring: If loadstring is loading code locally, or from a variable, replace the loadstring with the code
