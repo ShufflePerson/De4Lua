@@ -19,6 +19,13 @@ if 12 * 12 > 33/43 then
     print("hello world")
 end
 
+local x = 12 * 12
+local y = 33/12
+
+if x > y then
+    print("hello world")
+end
+
 
 local test = "\97\40\104\105\41"
 xd(test)

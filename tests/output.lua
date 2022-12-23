@@ -21,5 +21,10 @@ hook(something, omore, othan, othis)
 if true then
     print("hello world")
 end
+local x = 144
+local y = 2.75
+if true then
+    print("hello world")
+end
 local test = "a(hi)"
 print(test)
