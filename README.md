@@ -5,6 +5,12 @@
 De4Lua is a open source LUA deobfuscator. It is written in NodeJS and is designed to be used as a CLI. It is currently in development and is not yet ready for production use.
 I am hoping to one day intergrate this with [LuaDebugger](https://github.com/ShufflePerson/LuaDebugger) to allow for more advanced debugging & deobfuscation.
 
+## Contributing
+
+Read the (Example.ts)[https://github.com/ShufflePerson/De4Lua/blob/main/src/Logic/Static/Example.ts] file to see how to add new deobfuscation methods. If you have any questions, feel free to ask on my discord.
+
+Do **NOT** take the other files an a example, I am in process of refactoring them with better type and code system.
+
 ## Todo:
 
 If you have any feature requests, send them to my discord or make a new issue.
