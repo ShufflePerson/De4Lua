@@ -18,9 +18,7 @@ function Hello()
 end
 Hello(12 * 12)
 hook(something, omore, othan, othis)
-if true then
-    print("hello world")
-end
+print("hello world")
 local x = 144
 local y = 2.75
 local test = "a(hi)"

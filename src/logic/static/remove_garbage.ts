@@ -17,7 +17,6 @@ function has_non_if_statement(statements: any) {
 
 function iterate(statement: any, parent: any = {}) {
 
-
     //boilerplate which hopefully will be a MACRO in the future
     if (statement.body)
         statement.body = statement.body.map((statement: any) => iterate(statement, statement));
@@ -36,7 +35,6 @@ function iterate(statement: any, parent: any = {}) {
             return statement.type != ast_handlers.TYPES.EMPTY_STATEMENT
         })
         if (statement.clauses.length == 0) {
-
             statement = {
                 type: ast_handlers.TYPES.EMPTY_STATEMENT
             }
@@ -51,6 +49,20 @@ function iterate(statement: any, parent: any = {}) {
                 type: ast_handlers.TYPES.EMPTY_STATEMENT
             }
         }
+    }
+
+    if (statement.clauses) {
+        statement.clauses = statement.clauses.map((_statement: any) => {
+            if (_statement.condition && _statement.condition.type == ast_handlers.TYPES.BOOLEAN_LITERAL) {
+                if (_statement.condition.value == true) {
+                    statement = {
+                        type: ast_handlers.TYPES.CHUNK,
+                        body: _statement.body
+                    }
+                }
+            }
+            return _statement;
+        });
     }
 
     return statement;
