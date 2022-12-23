@@ -12,6 +12,8 @@ import remove_un_used from './static/remove_un_used';
 import rename_local_globals from './static/rename_local_globals';
 
 
+
+
 function logic(chunk: luaparse.Chunk, cycles: number = 0): luaparse.Chunk {
     console.log(`[+] Logic cycle ${cycles}`)
 

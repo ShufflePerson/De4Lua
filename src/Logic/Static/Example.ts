@@ -5,6 +5,7 @@ import { ast_handlers } from '../../ast/ToCode';
 //This is a example file, which will teach you on how to write a deobfuscation method
 
 
+
 function iterate(statement: any, chunk: luaparse.Chunk): any {
 
     //if the statement has a children named body, it will set each of the children to the result of the iterate function
