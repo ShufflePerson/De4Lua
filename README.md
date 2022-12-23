@@ -7,7 +7,7 @@ I am hoping to one day intergrate this with [LuaDebugger](https://github.com/Shu
 
 ## Contributing
 
-Read the (Example.ts)[https://github.com/ShufflePerson/De4Lua/blob/main/src/Logic/Static/Example.ts] file to see how to add new deobfuscation methods. If you have any questions, feel free to ask on my discord.
+Read the [Example.ts](https://github.com/ShufflePerson/De4Lua/blob/main/src/Logic/Static/Example.ts) file to see how to add new deobfuscation methods. If you have any questions, feel free to ask on my discord.
 
 Do **NOT** take the other files an a example, I am in process of refactoring them with better type and code system.
 
