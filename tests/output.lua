@@ -23,7 +23,7 @@ if true then
 end
 local x = 144
 local y = 2.75
-if false then
+if true then
     print("hello world")
 end
 local test = "a(hi)"

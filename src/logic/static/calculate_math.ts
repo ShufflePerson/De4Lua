@@ -122,7 +122,7 @@ function calc(statement: luaparse.BinaryExpression | luaparse.Identifier, chunk:
 
 
     //If the new statement has a value, return it, otherwise return the original statement
-    if(new_statement.value != null)
+    if(new_statement.value)
         return new_statement;
     else 
         return statement;
