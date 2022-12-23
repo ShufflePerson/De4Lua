@@ -22,7 +22,7 @@ end
 local x = 12 * 12
 local y = 33/12
 
-if x > y then
+if x < y then
     print("hello world")
 end
 
