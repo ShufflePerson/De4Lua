@@ -18,12 +18,12 @@ function Hello()
 end
 Hello(12 * 12)
 hook(something, omore, othan, othis)
-if null then
+if true then
     print("hello world")
 end
-local x = 12 * 12
-local y = 33 / 12
-if null then
+local x = 144
+local y = 2.75
+if false then
     print("hello world")
 end
 local test = "a(hi)"
