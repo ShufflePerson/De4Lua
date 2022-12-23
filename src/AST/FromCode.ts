@@ -7,6 +7,7 @@ export function fromCode(code: string) {
   return luaparse.parse(code, {
     comments: false,
     locations: true,
+    scope: true,
     ranges: false,
     luaVersion: '5.1',
   })
