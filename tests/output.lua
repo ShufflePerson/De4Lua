@@ -17,7 +17,9 @@ function Hello()
     print("hello world")
 end
 Hello(12 * 12)
+hook(something, omore, othan, othis)
 if true then
     print("hello world")
 end
 local test = "a(hi)"
+print(test)
