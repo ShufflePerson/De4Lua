@@ -7,16 +7,21 @@ import { ASTHandlers } from '../../AST/ToCode';
 
 function iterate(statement: any, chunk: luaparse.Chunk): any {
 
-    //if the statement is has a body children, it will set each of the children to the result of the iterate function
+    //if the statement has a children named body, it will set each of the children to the result of the iterate function
     if (statement.body)
         statement.body = statement.body.map((statement: any) => iterate(statement, chunk));
 
     
     //we can do anything with the statement here
-    //This example will replace a local statement with a string literal with the value "Hello World" with a comment statement with the value "Hello World"
+    //This example will replace a local statement with a string with the value "Hello World" with a comment statement with the value "Hello World"
     if (statement.type == ASTHandlers.TYPES.LOCAL_STATEMENT) {
+        //we cast the statement to a local statement
         let local_statement = statement as luaparse.LocalStatement;
+
+        //if the local statement is the type of string literal and the value is "Hello World"
         if (local_statement.init[0].type == "StringLiteral" && local_statement.init[0].value == "Hello World") {
+
+            //we return a comment statement with the value "Hello World"
             return {
                 type: "CommentStatement",
                 comment: "Hello World"
