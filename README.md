@@ -5,6 +5,8 @@ I am hoping to one day intergrate this with [LuaDebugger](https://github.com/Shu
 
 ## Todo:
 
+If you have any feature requests, send them to my discord or make a new issue. 
+
 1. Inline functions: Make one line functions inline, and remove the function definition
 2. Loadstring: If loadstring is loading code locally, or from a variable, replace the loadstring with the code
 3. Inline Complex Functions: If a function is only called once, inline it. But this has to be careful, as the function could be called later on from obfucased code.
@@ -17,6 +19,8 @@ I am hoping to one day intergrate this with [LuaDebugger](https://github.com/Shu
 10. Try to drastically reduce the amount of "any" types used in the code. Sadly I have been using them a lot due to the nature of the project.
 
 ## Known Bugs:
+
+Please report any bugs to my discord, or make a new issue. I will try to fix them as soon as possible.
 
 1. Some syntax is not yet supported, luraph syntax for example is not supported, by LuaParse and lua-fmt. I am working on my own forks of both of them to allow for this to be fixed
 
@@ -39,3 +43,4 @@ Before running, you have to build it at least once with the command `npm run bui
 ## Credits
 
 This Project has been Developed by Shuffle
+Discord: Shuffle#4696
