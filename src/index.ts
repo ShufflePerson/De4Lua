@@ -11,7 +11,7 @@ import fs from 'fs';
 
 //utils Imports
 import luaparse from 'luaparse';
-import Logic from "./Logic/Logic";
+import Logic from "./logic/logic";
 
 
 //Lua-FMT Has no typescript definitions, so we have to use require instead of import.
