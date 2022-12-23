@@ -1,0 +1,22 @@
+{
+  "name": "de4lua",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.ts",
+    "build": "tsc && esbuild dist/index.js --minify --outfile=dist/index.min.js",
+    "start-dev": "ts-node src/index.ts",
+    "start": "node dist/index.min.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/luaparse": "^0.2.8",
+    "@types/node": "^18.11.17",
+    "fs": "^0.0.1-security",
+    "lua-fmt": "^2.6.0",
+    "luaparse": "^0.3.1"
+  }
+}

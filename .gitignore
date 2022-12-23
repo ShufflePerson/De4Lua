@@ -1,0 +1,17 @@
+# git ignore for typescript project 
+
+
+# dependencies
+node_modules
+dist
+
+
+# IDEs and editors
+.vscode
+.idea
+*.iml
+*.swp
+
+
+# This is for my own personal use, I am working on a fork of luaparse
+src/luaparse/
