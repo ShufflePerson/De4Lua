@@ -59,7 +59,7 @@ function main() {
     const ast = fromCode(code);
 
     //Runs the Logic on the AST then converts it back to code
-    let deobfucased: luaparse.Chunk = Logic(ast);
+    let deobfucased: luaparse.Chunk = Logic(ast, cycles);
     let output = ToCode(deobfucased);
 
     output = deobfucasion_credit + output;
