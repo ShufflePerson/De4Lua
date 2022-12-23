@@ -26,6 +26,7 @@ If you have any feature requests, send them to my discord or make a new issue.
 9. Better Logging and Error Handling.
 10. Try to drastically reduce the amount of "any" types used in the code. Sadly I have been using them a lot due to the nature of the project.
 11. Implement Scope checks, to ensure you don't use a variable before it is defined and variables in wrong scopes.
+12. Replace ";" with new lines
 
 ## Known Bugs:
 
