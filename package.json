@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.ts",
-    "build": "tsc && esbuild dist/index.js --minify --outfile=dist/index.min.js",
+    "build": "npm install tsc && tsc && esbuild dist/index.js --minify --outfile=dist/index.min.js",
     "start-dev": "ts-node src/index.ts",
     "start": "node dist/index.min.js"
   },
