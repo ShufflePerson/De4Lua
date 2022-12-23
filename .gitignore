@@ -9,3 +9,6 @@ dist
 
 # This is for my own personal use, I am working on a fork of luaparse
 src/luaparse/
+
+
+package-lock.json
