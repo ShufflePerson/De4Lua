@@ -1,14 +1,12 @@
 import luaparse from 'luaparse'
 
 
-interface t_StatementReturn {
-    type: "NumericLiteral" | "BooleanLiteral",
-    value: number | null | boolean
-}
-
 //Utils
 import GetVariableDeclaration from '../Utils/GetVariableDeclaration';
 import IsReAssigned from '../Utils/IsReAssigned';
+
+//Types
+import { t_StatementReturn } from '../Types/t_StatementReturn';
 
 function get_side(statement: luaparse.BinaryExpression, chunk: luaparse.Chunk, side: "left" | "right"): luaparse.BinaryExpression {
 
