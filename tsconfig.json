@@ -1,4 +1,15 @@
 {
+    "rules": {
+        "camelcase": ["error"],
+    },
+    "overrides": [
+        {
+          "files": ["**/*.ts"],
+          "rules": {
+            "camelcase": ["off"]
+          }
+        }
+    ],
   "compilerOptions": {
     "target": "es6",
     "module": "CommonJS",
@@ -9,7 +20,6 @@
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
   },
   "include": ["src/**/*"]
 }
