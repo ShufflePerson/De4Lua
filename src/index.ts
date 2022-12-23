@@ -24,7 +24,7 @@ const deobfucasion_credit = `
     --This code has been deobfucated by De4Lua
     --The code might not be valid, if there are any issues report them to the Issues section of the Github page.
     --Github: https://github.com/ShufflePerson/De4Lua
-
+    \n\n\n
 `
 
 function main() {
