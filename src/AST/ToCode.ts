@@ -1,6 +1,9 @@
 import luaparse from 'luaparse'
 
 
+//this file is undocumented, whilist it is a bit old as I coded this for another Project a while ago, it still works and is flexible enough to be used in this project.
+
+//Feel free to refactor this file
 
 export namespace ASTHandlers {
     let output = "";
