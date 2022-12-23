@@ -31,6 +31,7 @@ function main() {
     //Default input and output files
     let input_file = "tests/input.lua";
     let output_file = "tests/output.lua";
+    let cycles = 0;
 
     //If the user has specified input and output files, use those instead.
     if (process.argv.length > 2) {
@@ -39,10 +40,14 @@ function main() {
         output_file = process.argv[3];
 
         //If the input file does not exist, throw a error and exit.
-        if(!fs.existsSync(input_file)) {
+        if (!fs.existsSync(input_file)) {
             console.error("Input file does not exist.");
             return;
         }
+
+        //If the user has specified a number of cycles, use that instead.
+        if (process.argv[4])
+            cycles = Number(process.argv[4]);
     }
 
 
@@ -71,9 +76,9 @@ function main() {
     //If the code is too long, it will not display it in the console.
     if (output.length < 1000)
         console.log(output)
-    else 
+    else
         console.log("Output is too long to display in the console. Check the output file.")
-    
+
     //Ends the timer and writes the output to the output file.
     console.timeEnd("Time");
     fs.writeFileSync(output_file, output);

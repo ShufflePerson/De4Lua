@@ -37,7 +37,7 @@ function logic(chunk: luaparse.Chunk, cycles: number = 0): luaparse.Chunk {
     return newchunk;
 }
 
-export default ((chunk: luaparse.Chunk, cycles: number = 0): luaparse.Chunk => {
+export default ((chunk: luaparse.Chunk, cycles: number = 3): luaparse.Chunk => {
     //Calls the Logic function.
     //Cycles are needed incase deobfucased code has more obfucation.
     //Todo: a check if last cycle was the same as the current cycle.
