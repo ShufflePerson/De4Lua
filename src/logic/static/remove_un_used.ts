@@ -1,5 +1,4 @@
 import luaparse from 'luaparse'
-import RemoveVariableDeclaration from '../Utils/RemoveVariableDeclaration';
 
 //I deleted it all, needs a full rewrite
 

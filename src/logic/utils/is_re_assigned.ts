@@ -1,6 +1,6 @@
 import luaparse from 'luaparse'
-import { t_Loc } from '../Types/t_Loc';
-import GetVariableDeclaration from './GetVariableDeclaration';
+import { t_Loc } from '../types/t_loc';
+import get_variable_deeclaration from './get_variable_declaration';
 
 
 function iterate(statement: any, var_declaration: luaparse.LocalStatement, stopAtLine: t_Loc | null, current_latest_assignment: luaparse.AssignmentStatement| null = null): luaparse.AssignmentStatement | null {
@@ -46,7 +46,7 @@ function iterate(statement: any, var_declaration: luaparse.LocalStatement, stopA
 export default ((chunk: luaparse.Chunk, varname: string, stopAtLine: t_Loc | null  = null): luaparse.AssignmentStatement | null => {
 
     //Get the variable declaration
-    let variable = GetVariableDeclaration(varname, chunk)
+    let variable = get_variable_deeclaration(varname, chunk)
     //If the variable is null, return null
     if (!variable) return null;
     

@@ -1,6 +1,6 @@
 import luaparse from 'luaparse'
-import GetVariableDeclaration from '../Utils/GetVariableDeclaration';
-import RemoveVariableDeclaration from '../Utils/RemoveVariableDeclaration';
+import get_variable_declaration from '../utils/get_variable_declaration';
+import remove_variable_declaration from '../utils/remove_variable_declaration';
 
 
 let removed_variables: string[] = [];
@@ -19,7 +19,7 @@ function iterate(statement: any, chunk: luaparse.Chunk): any {
     //If the statement is a variable
     if (statement.type == "Identifier") {
         //Get the variable declaration
-        let found = GetVariableDeclaration(statement.name, chunk);
+        let found = get_variable_declaration(statement.name, chunk);
 
         //If the variable is found, and the value of its is a variable
         if (found as any != chunk && found && found.init[0].type == "Identifier") {
@@ -52,7 +52,7 @@ function RenameLocalGlobals(chunk: luaparse.Chunk): luaparse.Chunk {
     //The variables are no longer needed as they are replaced with the global variable.
     //So we can remove them
     for (let i = 0; i < removed_variables.length; i++) {
-        newchunk = RemoveVariableDeclaration(newchunk, removed_variables[i]);
+        newchunk = remove_variable_declaration(newchunk, removed_variables[i]);
     }
 
     return newchunk;

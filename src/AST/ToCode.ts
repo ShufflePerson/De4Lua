@@ -5,7 +5,7 @@ import luaparse from 'luaparse'
 
 //Feel free to refactor this file
 
-export namespace ASTHandlers {
+export namespace ast_handlers {
     let output = "";
     export let orgchunk: luaparse.Chunk;
 
@@ -519,7 +519,7 @@ export namespace ASTHandlers {
 }
 
 export function ToCode(ast: luaparse.Chunk): string {
-    let result = ASTHandlers.handle(ast);
+    let result = ast_handlers.handle(ast);
     //console.log(JSON.stringify(ast, null, 4))
 
 

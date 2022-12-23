@@ -1,12 +1,12 @@
 import luaparse from 'luaparse'
 
 
-//Utils
-import GetVariableDeclaration from '../Utils/GetVariableDeclaration';
-import IsReAssigned from '../Utils/IsReAssigned';
+//utils
+import get_variable_declaration from '../utils/get_variable_declaration';
+import is_re_assigned from '../utils/is_re_assigned';
 
-//Types
-import { t_StatementReturn } from '../Types/t_StatementReturn';
+//types
+import { t_statementReturn } from '../types/t_statementReturn';
 
 function get_side(statement: luaparse.BinaryExpression, chunk: luaparse.Chunk, side: "left" | "right"): luaparse.BinaryExpression {
 
@@ -14,14 +14,14 @@ function get_side(statement: luaparse.BinaryExpression, chunk: luaparse.Chunk, s
     if (statement[side].type == "Identifier") {
         //@ts-ignore // stupid ts
         //Check if the variable is reassigned
-        let reassigned = IsReAssigned(chunk, statement[side].name, statement.loc)
+        let reassigned = is_re_assigned(chunk, statement[side].name, statement.loc)
 
 
         //If it is not reassigned, check if it is a variable declaration
         if (!reassigned) {
             //@ts-ignore // stupid ts
             //If the variable doesn't get reassigned, get the variable value
-            let declariton = GetVariableDeclaration(statement[side].name, chunk);
+            let declariton = get_variable_declaration(statement[side].name, chunk);
             if (declariton) {
                 //Update the side of the statement with the variable value
                 statement[side] = declariton.init[0];
@@ -63,7 +63,7 @@ function calc(statement: luaparse.BinaryExpression | luaparse.Identifier, chunk:
 
 
     //Decleare the raw statement that would replace the current statement
-    let new_statement: t_StatementReturn = {
+    let new_statement: t_statementReturn = {
         type: "NumericLiteral",
         value: null
     }

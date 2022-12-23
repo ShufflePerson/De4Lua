@@ -2,16 +2,16 @@ console.clear();
 
 
 //AST Imports
-import { fromCode } from "./AST/FromCode";
-import { ToCode } from "./AST/ToCode";
+import { fromCode } from "./ast/FromCode";
+import { ToCode } from "./ast/ToCode";
 
 //Node Imports
 import fs from 'fs';
 
 
-//Utils Imports
+//utils Imports
+import luaparse from 'luaparse';
 import Logic from "./Logic/Logic";
-import luaparse from 'luaparse'
 
 
 //Lua-FMT Has no typescript definitions, so we have to use require instead of import.

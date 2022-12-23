@@ -1,6 +1,6 @@
 import luaparse from 'luaparse'
-import HexToStr from '../Utils/Strings/HexToStr';
-import IsHex from '../Utils/Strings/IsHex';
+import hex_to_string from '../utils/strings/hex_to_string';
+import is_hex from '../utils/strings/is_hex';
 
 
 function iterate(statement: any): luaparse.Chunk {
@@ -19,9 +19,9 @@ function iterate(statement: any): luaparse.Chunk {
     //If the statement is a string
     if (statement.type == "StringLiteral") {
         //If the string is hex
-        if (IsHex(statement.raw)) {
+        if (is_hex(statement.raw)) {
             //Convert it to a string
-            let result = HexToStr(statement.raw);
+            let result = hex_to_string(statement.raw);
 
             //If the string contains a newline, then use a multiline string
             //Otherwise, use a normal string but with escaped quotes

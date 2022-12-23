@@ -1,5 +1,5 @@
 import luaparse from 'luaparse'
-import GetVariableDeclaration from './GetVariableDeclaration';
+import get_variable_declaration from './get_variable_declaration';
 
 
 function iterate(statement: any, var_declaration: luaparse.LocalStatement) {
@@ -24,7 +24,7 @@ function iterate(statement: any, var_declaration: luaparse.LocalStatement) {
 
 export default ((chunk: luaparse.Chunk, varname: string): luaparse.Chunk => {
     //Get the variable declaration
-    let var_declaration = GetVariableDeclaration(varname, chunk);
+    let var_declaration = get_variable_declaration(varname, chunk);
     //If the variable is null, return null
     if (!var_declaration) return chunk;
     
