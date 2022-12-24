@@ -7,6 +7,7 @@ import is_re_assigned from '../utils/is_re_assigned';
 
 //types
 import { t_statementReturn } from '../types/t_statementReturn';
+import { t_types } from '../../ast/builder/types/t_types';
 
 function get_side(statement: luaparse.BinaryExpression, chunk: luaparse.Chunk, side: "left" | "right"): luaparse.BinaryExpression {
 
@@ -15,7 +16,6 @@ function get_side(statement: luaparse.BinaryExpression, chunk: luaparse.Chunk, s
         //@ts-ignore // stupid ts
         //Check if the variable is reassigned
         let reassigned = is_re_assigned(chunk, statement[side].name, statement.loc)
-
 
         //If it is not reassigned, check if it is a variable declaration
         if (!reassigned) {
@@ -34,7 +34,7 @@ function get_side(statement: luaparse.BinaryExpression, chunk: luaparse.Chunk, s
             else 
                 statement[side] = reassigned.init[0];
         }
-    }
+    } 
 
     return statement;
 
@@ -52,6 +52,7 @@ function calc(statement: luaparse.BinaryExpression | luaparse.Identifier, chunk:
     //Get the left and right sides of the statement as numbers if possible
     statement = get_side(statement, chunk, "left");
     statement = get_side(statement, chunk, "right");
+
 
 
     //Check if the left and right sides are binary expressions

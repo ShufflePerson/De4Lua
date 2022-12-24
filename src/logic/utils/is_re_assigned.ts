@@ -44,6 +44,9 @@ function iterate(statement: any, var_declaration: luaparse.LocalStatement, stopA
 }
 
 export default ((chunk: luaparse.Chunk, varname: string, stopAtLine: t_Loc | null  = null): luaparse.AssignmentStatement | null => {
+    if (stopAtLine) {
+        stopAtLine.start.line = stopAtLine.start.line - 1;
+    }
 
     //Get the variable declaration
     let variable = get_variable_deeclaration(varname, chunk)
