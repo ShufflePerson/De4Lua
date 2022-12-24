@@ -193,12 +193,17 @@ export namespace ast_builder {
     }
 
     function ForNumericStatement(cn: luaparse.ForNumericStatement) {
+        console.log(cn)
         output += "for ";
         handle(cn.variable /*false*/)
         output += " = "
         handle(cn.start /*false*/);
         output += ", "
         handle(cn.end /*false*/);
+        if (cn.step) {
+            output += ", "
+            handle(cn.step /*false*/);
+        }
         output += " do\n"
         for (let i = 0; i < cn.body.length; i++) {
             handle(cn.body[i]);
