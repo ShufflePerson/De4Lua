@@ -15,10 +15,11 @@ function get_side(statement: luaparse.BinaryExpression, chunk: luaparse.Chunk, s
     if (statement[side].type == "Identifier") {
         //@ts-ignore // stupid ts
         //Check if the variable is reassigned
-        let reassigned = is_re_assigned(chunk, statement[side].name, statement.loc)
-
+        let reassigned = is_re_assigned(chunk, statement[side].name, statement.loc, statement)
+        if (reassigned == undefined)
+            return statement;
         //If it is not reassigned, check if it is a variable declaration
-        if (!reassigned) {
+        if (reassigned == null) {
             //@ts-ignore // stupid ts
             //If the variable doesn't get reassigned, get the variable value
             let declariton = get_variable_declaration(statement[side].name, chunk);
@@ -118,6 +119,11 @@ function calc(statement: luaparse.BinaryExpression | luaparse.Identifier, chunk:
             else
                 console.warn(`Unknown operator ${statement.operator}`)
         }
+    }
+
+    if (new_statement.type == "BooleanLiteral") {
+        //temporary removal till I can figure out how to make it work
+        return statement;
     }
 
 
