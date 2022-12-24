@@ -226,7 +226,7 @@ export namespace ast_handlers {
             handle(arg /*false*/);
 
             if (i != cn.arguments.length - 1)
-                output += ", o"
+                output += ", "
         }
 
         output += ")\n"
