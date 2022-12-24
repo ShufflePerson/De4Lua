@@ -144,6 +144,11 @@ function iterate(statement: any, chunk: luaparse.Chunk) {
         statement.init = statement.init.map((statement: any) => iterate(statement, chunk));
     if (statement.clauses)
         statement.clauses = statement.clauses.map((statement: any) => iterate(statement, chunk));
+    if (statement.start)
+        statement.start = iterate(statement.start, chunk);
+    if (statement.end)
+        statement.end = iterate(statement.end, chunk);
+
 
     
     //if the statement is a binary expression, calculate it
