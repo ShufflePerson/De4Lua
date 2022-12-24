@@ -232,11 +232,18 @@ export namespace ast_builder {
     }
 
     function BinaryExpression(cn: luaparse.BinaryExpression) {
-        output += "(";
+        let add_brackets = cn.operator != "..";
+
+        if(add_brackets)
+            output += "(";
         handle(cn.left /*true*/);
-        output += `) ${cn.operator} (`;
+        if(add_brackets)
+            output += `) ${cn.operator} (`;
+        else
+            output += ` ${cn.operator} `;
         handle(cn.right /*true*/);
-        output += ")";
+        if(add_brackets)
+            output += ")";
     }
 
     function FunctionDeclaration(cn: luaparse.FunctionDeclaration) {
