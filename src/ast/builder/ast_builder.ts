@@ -193,7 +193,6 @@ export namespace ast_builder {
     }
 
     function ForNumericStatement(cn: luaparse.ForNumericStatement) {
-        console.log(cn)
         output += "for ";
         handle(cn.variable /*false*/)
         output += " = "
