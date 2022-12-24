@@ -1,5 +1,5 @@
 import luaparse from 'luaparse'
-import { ast_handlers } from '../../ast/ToCode';
+import { t_types } from '../../ast/builder/types/t_types';
 
 
 //This is a example file, which will teach you on how to write a deobfuscation method
@@ -15,7 +15,7 @@ function iterate(statement: any, chunk: luaparse.Chunk): any {
     
     //we can do anything with the statement here
     //This example will replace a local statement with a string with the value "Hello World" with a comment statement with the value "Hello World"
-    if (statement.type == ast_handlers.TYPES.LOCAL_STATEMENT) {
+    if (statement.type == t_types.LOCAL_STATEMENT) {
         //we cast the statement to a local statement
         let local_statement = statement as luaparse.LocalStatement;
 

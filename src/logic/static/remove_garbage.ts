@@ -1,5 +1,6 @@
 import luaparse from 'luaparse'
-import { ast_handlers } from '../../ast/ToCode';
+import { t_types } from '../../ast/builder/types/t_types';
+
 
 
 
@@ -7,7 +8,7 @@ import { ast_handlers } from '../../ast/ToCode';
 //This is needed as the other statements are not supported yet
 function has_non_if_statement(statements: any) {
     for (let i = 0; i < statements.length; i++) {
-        if (statements[i].type != ast_handlers.TYPES.IF_CLAUSE) {
+        if (statements[i].type != t_types.IF_CLAUSE) {
             return true;
         }
     }
@@ -32,31 +33,31 @@ function iterate(statement: any, parent: any = {}) {
             console.warn("[*] [Not-Supported] If statement has non if statement in it, this is not supported yet")
 
         statement.clauses = statement.clauses.filter((statement: any) => {
-            return statement.type != ast_handlers.TYPES.EMPTY_STATEMENT
+            return statement.type != t_types.EMPTY_STATEMENT
         })
         if (statement.clauses.length == 0) {
             statement = {
-                type: ast_handlers.TYPES.EMPTY_STATEMENT
+                type: t_types.EMPTY_STATEMENT
             }
         }
     }
 
     //If the statement is an if statement, iterate through the clauses
-    if (statement.condition && statement.condition.type == ast_handlers.TYPES.BOOLEAN_LITERAL) {
+    if (statement.condition && statement.condition.type == t_types.BOOLEAN_LITERAL) {
         //If the condition is false, remove the if statement from the AST (code)
         if (statement.condition.value == false) {
             statement = {
-                type: ast_handlers.TYPES.EMPTY_STATEMENT
+                type: t_types.EMPTY_STATEMENT
             }
         }
     }
 
     if (statement.clauses) {
         statement.clauses = statement.clauses.map((_statement: any) => {
-            if (_statement.condition && _statement.condition.type == ast_handlers.TYPES.BOOLEAN_LITERAL) {
+            if (_statement.condition && _statement.condition.type == t_types.BOOLEAN_LITERAL) {
                 if (_statement.condition.value == true) {
                     statement = {
-                        type: ast_handlers.TYPES.CHUNK,
+                        type: t_types.CHUNK,
                         body: _statement.body
                     }
                 }
