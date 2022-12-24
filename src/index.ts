@@ -3,7 +3,6 @@ console.clear();
 
 //AST Imports
 import { fromCode } from "./ast/FromCode";
-import { ToCode } from "./ast/ToCode";
 
 //Node Imports
 import fs from 'fs';
@@ -12,10 +11,11 @@ import fs from 'fs';
 //utils Imports
 import luaparse from 'luaparse';
 import Logic from "./logic/logic";
+import { to_code } from "./ast/builder/ast_builder";
 
 
 //Lua-FMT Has no typescript definitions, so we have to use require instead of import.
-//This is a temporary fix until I can find a better solution or implement my own formatting.
+//This is a temporary fix until I can find a better solution or implement my own solution 
 const luafmt = require("lua-fmt");
 
 
@@ -60,7 +60,7 @@ function main() {
 
     //Runs the Logic on the AST then converts it back to code
     let deobfucased: luaparse.Chunk = Logic(ast, cycles);
-    let output = ToCode(deobfucased);
+    let output = to_code(deobfucased);
 
     output = deobfucasion_credit + output;
 
