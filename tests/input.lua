@@ -1,31 +1,12 @@
-loadstring("\108\111\99\97\108\32\97\97\97\32\61\32\112\114\105\110\116\10\10\102\117\110\99\116\105\111\110\32\77\111\114\101\40\104\105\41\32\10\32\32\32\32\97\97\97\40\104\105\41\10\101\110\100\10\10\77\111\114\101\40\34\104\101\108\108\111\32\119\111\114\108\100\34\41\10")()
-
-
-local i_am_hook = hook
-local xd = print
-
-function Hello() 
-    local ssksk = ""
-    local kek = print 
-    kek("hello world")
-end
-
-Hello(12 * 12)
-
-
-i_am_hook(something, more, than, this)
-
-if 12 * 12 > 33/43 then
-    print("hello world")
-end
-
-local x = 12 * 12
-local y = 33/12
-
-if x < y then
-    print("hello world")
-end
-
-
-local test = "\97\40\104\105\41"
-xd(test)
+local v0 = 16164 + (((3864 + 364101) - 274396) - 67600) + (190952 - 110638);
+v0 = v0 + (113 - (26 + 67)) + (1219 - (119 + 997));
+local v1 = 1203456;
+local v2 = 1230471;
+local v3 = 8023481;
+if (v2 > v1) then print("true"); end
+if ((1 + v3) > v2) then print("obfuscate the conditions!"); end
+print("Clicking [Strings] will completely hide this string!");
+do function sieve_of_eratosthenes(v5) local v8 = {}; for v9 = 1, v5 do v8[v9] = 1 ~= v9; end for v11 = 2, math.floor(math
+    .sqrt(v5)) do if v8[v11] then for j = v11 * v11, v5, v11 do v8[j] = false; end end end return v8; end local v4 = sieve_of_eratosthenes(420); for v6, v7 in pairs(v4) do if v7 then print("Prime found: "
+    .. v6); end end end
+print("How to obfuscate best?");
