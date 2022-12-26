@@ -1,6 +1,4 @@
 {
     "watch": ["src", "tests/input.lua"],
-    "ext": "ts",
-    "ignore": ["src/**/*.spec.ts"],
-    "exec": "ts-node src/index.ts"
+    "ext": "ts"
 }
