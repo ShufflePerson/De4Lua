@@ -1,5 +1,6 @@
 import luaparse from 'luaparse'
 import { t_types } from '../../ast/builder/types/t_types';
+import { set_iterate_body } from './../iterate';
 
 
 //This is a example file, which will teach you on how to write a deobfuscation method
@@ -8,10 +9,8 @@ import { t_types } from '../../ast/builder/types/t_types';
 
 function iterate(statement: any, chunk: luaparse.Chunk): any {
 
-    //if the statement has a children named body, it will set each of the children to the result of the iterate function
-    if (statement.body)
-        statement.body = statement.body.map((statement: any) => iterate(statement, chunk));
 
+    statement = set_iterate_body(statement, iterate, chunk);
     
     //we can do anything with the statement here
     //This example will replace a local statement with a string with the value "Hello World" with a comment statement with the value "Hello World"

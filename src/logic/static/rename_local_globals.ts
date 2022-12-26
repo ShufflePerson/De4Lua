@@ -1,6 +1,7 @@
 import luaparse from 'luaparse'
 import get_variable_declaration from '../utils/get_variable_declaration';
 import remove_variable_declaration from '../utils/remove_variable_declaration';
+import { set_iterate_body, set_iterate_types } from './../iterate';
 
 
 let removed_variables: string[] = [];
@@ -8,10 +9,9 @@ let removed_variables: string[] = [];
 function iterate(statement: any, chunk: luaparse.Chunk): any {
     
 
-    //A ton of boierplate code, which hopefully will be a MACRO in the future
-    if (statement.body ) {
-        statement.body = statement.body.map((statement: any) => iterate(statement, chunk));
-    }
+    statement = set_iterate_body(statement, iterate, chunk);
+
+    
     if (statement.type == "CallStatement" && statement.expression.type == "CallExpression") {
        statement.expression.base = (iterate(statement.expression.base, chunk));
     }

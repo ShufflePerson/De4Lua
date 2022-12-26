@@ -1,10 +1,10 @@
 import luaparse from 'luaparse'
+import { set_iterate_body } from '../iterate';
 
 
 function iterate(statement: any) {
 
-    if (statement.body)
-        statement.body = statement.body.map((statement: any) => iterate(statement));
+    statement = set_iterate_body(statement, iterate);
         
     return statement;
 }

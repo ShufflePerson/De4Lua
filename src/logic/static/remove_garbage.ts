@@ -1,5 +1,6 @@
 import luaparse from 'luaparse'
 import { t_types } from '../../ast/builder/types/t_types';
+import { set_iterate_body } from './../iterate';
 
 
 
@@ -18,10 +19,7 @@ function has_non_if_statement(statements: any) {
 
 function iterate(statement: any, parent: any = {}) {
 
-
-    //boilerplate which hopefully will be a MACRO in the future
-    if (statement.body)
-        statement.body = statement.body.map((statement: any) => iterate(statement, statement));
+    statement = set_iterate_body(statement, iterate, parent);
 
 
     //If our current statement has clauses 
