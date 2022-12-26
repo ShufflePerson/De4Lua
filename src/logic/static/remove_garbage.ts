@@ -62,7 +62,9 @@ function iterate(statement: any, parent: any = {}) {
         }
     }
 
+    //If the statment is a do statement
     if (statement.type == "DoStatement") {
+        //We set the statement to the body hence removing the do statement
         statement = {
             type: t_types.CHUNK,
             body: statement.body
