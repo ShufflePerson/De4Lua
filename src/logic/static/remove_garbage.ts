@@ -17,7 +17,7 @@ function has_non_if_statement(statements: any) {
 
 
 function iterate(statement: any, parent: any = {}) {
-    
+
 
     //boilerplate which hopefully will be a MACRO in the future
     if (statement.body)
@@ -59,6 +59,13 @@ function iterate(statement: any, parent: any = {}) {
                 type: t_types.CHUNK,
                 body: statement.body
             };
+        }
+    }
+
+    if (statement.type == "DoStatement") {
+        statement = {
+            type: t_types.CHUNK,
+            body: statement.body
         }
     }
 
