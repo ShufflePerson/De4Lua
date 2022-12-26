@@ -17,6 +17,7 @@ function has_non_if_statement(statements: any) {
 
 
 function iterate(statement: any, parent: any = {}) {
+    
 
     //boilerplate which hopefully will be a MACRO in the future
     if (statement.body)
@@ -42,15 +43,22 @@ function iterate(statement: any, parent: any = {}) {
         }
     }
 
-    //If the statement is an if statement, iterate through the clauses
+    //If the statement is a condition check and the condition is a boolean
     if (statement.condition && statement.condition.type == t_types.BOOLEAN_LITERAL) {
-        //If the condition is false, remove the if statement from the AST (code)
+        //If the condition is false, remove the entire statment 
         if (statement.condition.value == false) {
             statement = {
                 type: t_types.EMPTY_STATEMENT
             }
+        } else {
+            //else if it is true, remove the condition and set the statement to the body
+            statement = {
+                type: t_types.CHUNK,
+                body: statement.body
+            };
         }
     }
+
 
     if (statement.clauses) {
         statement.clauses = statement.clauses.map((_statement: any) => {
@@ -65,6 +73,7 @@ function iterate(statement: any, parent: any = {}) {
             return _statement;
         });
     }
+
 
     return statement;
 }
