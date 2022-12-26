@@ -36,6 +36,7 @@ If you have any feature requests, send them to my discord or make a new issue.
 Please report any bugs to my discord, or make a new issue. I will try to fix them as soon as possible.
 
 1. Some syntax is not yet supported, luraph syntax for example is not supported, by LuaParse and lua-fmt. I am working on my own forks of both of them to allow for this to be fixed
+2. Math expressions aren't being calculated if they contain a variable due the is_re_assigned function not working properly
 
 ## Virtulization
 
