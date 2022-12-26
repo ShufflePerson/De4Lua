@@ -15,26 +15,9 @@ function get_side(statement: luaparse.BinaryExpression, chunk: luaparse.Chunk, s
     if (statement[side].type == "Identifier") {
         //@ts-ignore // stupid ts
         //Check if the variable is reassigned
-        let reassigned = is_re_assigned(chunk, statement[side].name, statement.loc, statement)
-        if (reassigned == undefined)
-            return statement;
-        //If it is not reassigned, check if it is a variable declaration
-        if (reassigned == null) {
-            //@ts-ignore // stupid ts
-            //If the variable doesn't get reassigned, get the variable value
-            let declariton = get_variable_declaration(statement[side].name, chunk);
-            if (declariton) {
-                //Update the side of the statement with the variable value
-                statement[side] = declariton.init[0];
-            }
-        } else {
-            //If the variable is reassigned, get the value of the reassigned variable
-            //if the type of the reassigned variable is a binary expression, call the get_side function on it to get the value
-            if (reassigned.init[0].type == "BinaryExpression")
-                statement[side] = get_side(reassigned.init[0], chunk, side);
-            else 
-                statement[side] = reassigned.init[0];
-        }
+        let reassigned = is_re_assigned(chunk, get_variable_declaration(statement[side].name, chunk), statement[side].loc, statement)
+        console.log(reassigned)
+
     } 
 
     return statement;
