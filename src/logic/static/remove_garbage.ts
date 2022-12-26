@@ -33,9 +33,12 @@ function iterate(statement: any, parent: any = {}) {
         else
             console.warn("[*] [Not-Supported] If statement has non if statement in it, this is not supported yet")
 
+        //If the statement is a empty statement, remove it
         statement.clauses = statement.clauses.filter((statement: any) => {
             return statement.type != t_types.EMPTY_STATEMENT
         })
+
+        //If the statement has no clauses, remove it
         if (statement.clauses.length == 0) {
             statement = {
                 type: t_types.EMPTY_STATEMENT
@@ -60,9 +63,13 @@ function iterate(statement: any, parent: any = {}) {
     }
 
 
+    //If statment has clauses
     if (statement.clauses) {
+        //We change each clause
         statement.clauses = statement.clauses.map((_statement: any) => {
+            //If the condition is a boolean literal
             if (_statement.condition && _statement.condition.type == t_types.BOOLEAN_LITERAL) {
+                //If the value is true, we set the statement to the body
                 if (_statement.condition.value == true) {
                     statement = {
                         type: t_types.CHUNK,
