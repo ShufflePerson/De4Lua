@@ -54,7 +54,4 @@ The default input/ouput is inside the tests folder, to specify your own, specify
 
 Before running, you have to build it at least once with the command `npm run build`. This will create a `dist` folder with the compiled code.
 
-## Credits
 
-This Project has been Developed by Shuffle
-Discord: Shuffle#4696
